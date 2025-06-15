@@ -2,8 +2,8 @@ name: run_it
 description: >-
   A list of very useful extensions that allow you to execute code or a variable before assignment,
   or to check for null.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+version: 1.0.1
+repository: https://github.com/hacp0012/run_it
 
 environment:
   sdk: ^3.0.0
