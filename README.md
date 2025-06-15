@@ -28,15 +28,15 @@ Extended to Dart core types.
 TYPES RUNNERS
 
  T = Value Type
- I = Return Type
+ R = Return Type
  x = void
 
- I             T(it)
+ R             T(it)
 bool isTrue = yesIsTrue.run((it) {---})
 
 return   methods    parameter
-   I        run        x
-   I      T.run        T
+   R        run        x
+   R      T.run        T
    T      T.runOn      T
    x      T.let        T
    x        --         x
@@ -48,20 +48,44 @@ return   methods    parameter
 ## Usage
 
 ```dart
-// [run] will have `null` or `void` as default return type.
+// [run] will have `null` or `void` as derfault return tupe.
 run(() => print('Hello World'));
 
 // [run] will have [int] as return type.
 int time = run(() => 10);
 
 // [runOn] will have [int] as return type and [it] will be [int]
-int hours = time.runOn((it) => it ~/ 3600);
+int houres = time.runOn((it) => it ~/ 3600);
 
 // [run] will have [double] as return type and [it] will be [int]
 double seconds = time.run((it) => it / 1000);
 
-// [let] will have `void` as default return type.
-seconds.let((it) => print("$it seconds AND $hours hours In $time"));
+// [let] will have `void` as derfault return tupe.
+seconds.let((it) => print("$it seconds AND $houres houres In $time"));
+
+seconds.ifNotNull((it) => print("Seconds is not null: $it"));
+
+// [isNull] will return [bool] as default type.
+print("Seconds is null: ${seconds.isNull}");
+
+// [isNotNull] will return [bool] as default type.
+print("Seconds is not null: ${seconds.isNotNull}");
+print("Time is null: ${time.isNull}");
+
+print("-" * 36);
+/* ‼️‼️ Attention this execution can bug, some time. */
+dynamic map = {};
+map.run((it) => print(it)); // NoSuchMethodError: Class '_Map<dynamic, dynamic>' has no instance method 'run'.
+// Use on know types (advice).
+
+/* ------------------------------------------------------------------------ /
+| This is a simple example to show how to use the run_it package.
+| It demonstrates the use of run, runOn, let, isNull, isNotNull, and ifNotNull methods.
+| The example includes basic operations with integers and demonstrates how to handle null checks.
+| Note: The last part of the example with dynamic map is intentionally left to show a potential issue with dynamic types.
+| It is recommended to use known types to avoid runtime errors.
+| This example is for demonstration purposes only and may not be suitable for production use.
+|------------------------------------------------------------------------ */
 ```
 
 [Visit for more exemples](https://kotlinlang.org/docs/scope-functions.html)
@@ -72,8 +96,8 @@ Note: These extensions work on all types but may rarely have issues with variabl
 
 ```dart
 dynamic map = {};
-map.run((it) => print(it)); // Error: Map has no run method.
-// Use on known types (advice).
+map.run((it) => print(it)); // NoSuchMethodError: Class '_Map<dynamic, dynamic>' has no instance method 'run'.
+  // Use on know types (advice).
 ```
 
 Inspired by Kotlin.

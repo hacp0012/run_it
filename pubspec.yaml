@@ -2,7 +2,7 @@ name: run_it
 description: >-
   A list of very useful extensions that allow you to execute code or a variable before assignment,
   or to check for null.
-version: 1.0.1
+version: 1.1.1
 repository: https://github.com/hacp0012/run_it
 
 environment:
@@ -30,3 +30,4 @@ topics:
   - run
   - let
   - kotlin
+  - scope-function
