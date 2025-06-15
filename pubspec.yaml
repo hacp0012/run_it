@@ -1,0 +1,32 @@
+name: run_it
+description: >-
+  A list of very useful extensions that allow you to execute code or a variable before assignment,
+  or to check for null.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.0.0
+
+# Add regular dependencies here.
+dependencies:
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.24.0
+
+# This package supports all platforms listed below.
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+topics:
+  - extension
+  - run
+  - let
+  - kotlin
